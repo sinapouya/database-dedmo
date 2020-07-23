@@ -1,5 +1,7 @@
 package com.sinasample.database.databasedemo;
 
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.sinasample.database.databasedemo.entity.Person;
 import com.sinasample.database.databasedemo.jpa.PersonJpaRepository;
 
 @SpringBootApplication
@@ -21,8 +24,10 @@ public class SpringJdbcApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		logger.info("All users {}" , personJpaRepository.findById(10001));
-		
+		logger.info("find one user {}" , personJpaRepository.findById(10001));
+		logger.info("create  user {}" , personJpaRepository.create(new Person("ali","istanbul",new Date())));
+		logger.info("update one user {}" , personJpaRepository.update(new Person(10001,"sina","tehran edited",new Date())));
+		logger.info("find All users {}" , personJpaRepository.findAll());
 	}
 	
 
