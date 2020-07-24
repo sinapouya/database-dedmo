@@ -36,11 +36,13 @@ public class CourseRepository {
 	}
 	public void aroundEntityManager() {
 		logger.info("aroundEntityManager start");
-		Course course = new Course("angular course");
-		em.persist(course);
-//		em.flush();
-//		em.detach(course);
-		course.setName("angular course updated");
+		 Course course = new Course("new course");
+		 em.persist(course);  
+		 
+		 Course course1 = findById(10003l);
+		 course1.setName("Simple spring boot sample-updated");
+		 
+		
 		
 	}
 }
