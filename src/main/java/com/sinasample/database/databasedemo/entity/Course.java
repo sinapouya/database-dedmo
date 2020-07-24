@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -16,6 +18,13 @@ import jdk.jfr.Timestamp;
 
 @Entity
 @Table(name="Course")
+@NamedQueries(
+		value = {
+				@NamedQuery(name = "get_all_courses",query = "select c from Course c"),
+				@NamedQuery(name = "get_all_jpa_courses",query = "select c from Course c where name like '%jpa'")
+
+				
+		})
 public class Course {
 	@Id
 	@GeneratedValue
