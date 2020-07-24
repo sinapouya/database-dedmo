@@ -47,4 +47,9 @@ public class CourseRepositoryTest {
 		Course courseUpdated = courseRepo.findById(10002l);
 		assertEquals("Simple spring sample updated",courseUpdated.getName());
 	}
+	@Test
+	@DirtiesContext
+	public void aroundEntityManager_test() {
+		courseRepo.aroundEntityManager();
+	}
 }
