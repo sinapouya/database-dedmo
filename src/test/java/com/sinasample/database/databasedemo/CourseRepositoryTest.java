@@ -1,4 +1,4 @@
-package com.sinasample.database.databasedemo.jpa;
+package com.sinasample.database.databasedemo;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -14,8 +14,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.sinasample.database.databasedemo.SpringJdbcApplication;
 import com.sinasample.database.databasedemo.entity.Course;
+import com.sinasample.database.databasedemo.jpa.CourseRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SpringJdbcApplication.class)
