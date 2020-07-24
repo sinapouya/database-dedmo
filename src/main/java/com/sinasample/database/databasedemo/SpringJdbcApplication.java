@@ -32,9 +32,10 @@ public class SpringJdbcApplication implements CommandLineRunner{
 //		logger.info("create  user {}" , personJpaRepository.create(new Person("ali","istanbul",new Date())));
 //		logger.info("update one user {}" , personJpaRepository.update(new Person(10001,"sina","tehran edited",new Date())));
 //		logger.info("find All users {}" , personJpaRepository.findAll());
-		Course course = courseRepository.findById(10001l);
+		Course course = courseRepository.findById(1000l);
 		logger.info("course number 10001 is {}",course);
 //		courseRepository.deleteById(10001l);
+		courseRepository.save(new Course("react"));
 	}
 	
 

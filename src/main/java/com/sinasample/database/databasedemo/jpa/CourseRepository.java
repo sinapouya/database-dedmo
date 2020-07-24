@@ -21,5 +21,13 @@ public class CourseRepository {
 		Course course = this.findById(id);
 		em.remove(course);
 	}
-
+	public Course save(Course course) {
+		
+		if(course==null) {
+			em.persist(course);
+		}else {
+			em.merge(course);
+		}
+		return course;
+	}
 }
