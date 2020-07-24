@@ -17,4 +17,6 @@ insert into PERSON(ID,NAME,LOCATION,BIRTH_DATE) values(10004,'ANGEL','TEHRAN',sy
 	name varchar(255) not null
 }
 */
-insert into COURSE(ID,NAME) values(10001,'Simple jpa sample')
+insert into COURSE(ID,NAME) values(10001,'Simple jpa sample');
+insert into COURSE(ID,NAME) values(10002,'Simple spring sample');
+insert into COURSE(ID,NAME) values(10003,'Simple spring boot sample');
