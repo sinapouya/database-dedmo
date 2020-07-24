@@ -34,7 +34,7 @@ public class SpringJdbcApplication implements CommandLineRunner{
 //		logger.info("find All users {}" , personJpaRepository.findAll());
 		Course course = courseRepository.findById(10001l);
 		logger.info("course number 10001 is {}",course);
-		courseRepository.deleteById(10001l);
+//		courseRepository.deleteById(10001l);
 	}
 	
 
