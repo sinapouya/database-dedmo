@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import javax.transaction.Transactional;
+
 import org.junit.jupiter.api.Test;
 
 import org.junit.runner.RunWith;
@@ -28,6 +30,7 @@ public class StudentRepositoryTest {
 	@Autowired
 	private StudentRepository studentRepository;
 	@Test
+	@Transactional
 	public void retriveStudentAndPasswordDetails() {
 		Student student = studentRepository.findById(2001l);
 		Passport passport = student.getPassport();
