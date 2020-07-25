@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
 import org.junit.jupiter.api.Test;
@@ -29,6 +30,8 @@ public class StudentRepositoryTest {
 
 	@Autowired
 	private StudentRepository studentRepository;
+	@Autowired
+	private EntityManager em;
 	@Test
 	@Transactional
 	public void retriveStudentAndPasswordDetails() {
@@ -38,5 +41,18 @@ public class StudentRepositoryTest {
 		logger.info("student is {} ",student);
 		logger.info("passport is {} ",passport);
 		
+	}
+	@Test
+	@Transactional
+	public void someTestforPersistentContext() {
+		Student student = em.find(Student.class, 2001l);
+		
+		Passport passport = student.getPassport();
+		
+		passport.setNumber("N123786");
+		
+		student.setName("SINA-updated");
+		em.persist(student);
+		em.persist(passport);
 	}
 }

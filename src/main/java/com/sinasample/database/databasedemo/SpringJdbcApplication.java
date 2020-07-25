@@ -2,6 +2,8 @@ package com.sinasample.database.databasedemo;
 
 import java.util.Date;
 
+import javax.persistence.EntityManager;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,8 @@ public class SpringJdbcApplication implements CommandLineRunner{
 	private CourseRepository courseRepository;
 	@Autowired
 	private StudentRepository studentRepository;
+	@Autowired
+	private EntityManager em;
 	public static void main(String[] args) {
 		SpringApplication.run(SpringJdbcApplication.class, args);
 	}
@@ -40,7 +44,9 @@ public class SpringJdbcApplication implements CommandLineRunner{
 //		courseRepository.deleteById(10001l);
 //		courseRepository.save(new Course("react"));
 //		courseRepository.aroundEntityManager();
-		studentRepository.saveStudentWithPassport();
+//		studentRepository.saveStudentWithPassport();
+//		studentRepository.someTestforPersistentContext();
+		studentRepository.retrivePassportAndAssosiateStudent();
 	}
 	
 

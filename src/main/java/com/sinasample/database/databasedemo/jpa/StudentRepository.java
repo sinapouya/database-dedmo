@@ -45,5 +45,25 @@ public class StudentRepository {
 		
 		
 	}
+	@Transactional
+	public void someTestforPersistentContext() {
+		Student student = em.find(Student.class, 2001l);
+		
+		Passport passport = student.getPassport();
+		
+		passport.setNumber("N123786");
+		
+		student.setName("SINA-updated");
+//		em.persist(student);
+//		em.persist(passport);
+	}
+	
+	@Transactional
+	public void retrivePassportAndAssosiateStudent() {
+		Passport passport = em.find(Passport.class,4001l);
+		logger.info("passport is -> {} ",passport);
+		logger.info("related student is -> {} ",passport.getStudent());
+		
+	}
 	
 }

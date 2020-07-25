@@ -39,6 +39,15 @@ public class Student {
 	public Passport getPassport() {
 		return passport;
 	}
+	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public void setPassport(Passport passport) {
 		this.passport = passport;
