@@ -13,6 +13,7 @@ import com.sinasample.database.databasedemo.entity.Course;
 import com.sinasample.database.databasedemo.entity.Person;
 import com.sinasample.database.databasedemo.jpa.CourseRepository;
 import com.sinasample.database.databasedemo.jpa.PersonJpaRepository;
+import com.sinasample.database.databasedemo.jpa.StudentRepository;
 
 @SpringBootApplication
 public class SpringJdbcApplication implements CommandLineRunner{
@@ -22,6 +23,8 @@ public class SpringJdbcApplication implements CommandLineRunner{
 	private PersonJpaRepository personJpaRepository;
 	@Autowired
 	private CourseRepository courseRepository;
+	@Autowired
+	private StudentRepository studentRepository;
 	public static void main(String[] args) {
 		SpringApplication.run(SpringJdbcApplication.class, args);
 	}
@@ -36,7 +39,8 @@ public class SpringJdbcApplication implements CommandLineRunner{
 //		logger.info("course number 10001 is {}",course);
 //		courseRepository.deleteById(10001l);
 //		courseRepository.save(new Course("react"));
-		courseRepository.aroundEntityManager();
+//		courseRepository.aroundEntityManager();
+		studentRepository.saveStudentWithPassport();
 	}
 	
 
