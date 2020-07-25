@@ -22,40 +22,18 @@ import com.sinasample.database.databasedemo.jpa.StudentRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SpringJdbcApplication.class)
-public class CourseRepositoryTest {
+public class StudentRepositoryTest {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
-	CourseRepository courseRepo;
-	@Autowired
 	private StudentRepository studentRepository;
 	@Test
-	public void findById_test() {
-		Course course = courseRepo.findById(10001l);
-		assertEquals("Simple jpa sample",course.getName());
-	}
-	
-	@Test
-	@DirtiesContext
-	public void deleteById_test() {
-		courseRepo.deleteById(10002l);
-		assertNull( courseRepo.findById(10002l));
-	}
-	@Test
-	@DirtiesContext
-	public void save_test() {
-		Course course = courseRepo.findById(10002l);
-		assertEquals("Simple spring sample",course.getName());
-		course.setName("Simple spring sample updated");
-		courseRepo.save(course);
+	public void retriveStudentAndPasswordDetails() {
+		Student student = studentRepository.findById(2001l);
+		Passport passport = student.getPassport();
 		
-		Course courseUpdated = courseRepo.findById(10002l);
-		assertEquals("Simple spring sample updated",courseUpdated.getName());
+		logger.info("student is {} ",student);
+		logger.info("passport is {} ",passport);
+		
 	}
-	@Test
-	@DirtiesContext
-	public void aroundEntityManager_test() {
-		courseRepo.aroundEntityManager();
-	}
-	
 }
