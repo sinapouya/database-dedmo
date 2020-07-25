@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sinasample.database.databasedemo.entity.Course;
+import com.sinasample.database.databasedemo.entity.Review;
+
 import org.slf4j.*;
 
 @Repository
@@ -41,8 +43,20 @@ public class CourseRepository {
 		 
 		 Course course1 = findById(10003l);
 		 course1.setName("Simple spring boot sample-updated");
-		 
+	}
+	public void addReviewsToCourse() {
+		Course course = this.findById(10003l);
 		
+		Review review1 = new Review("5","Awsoome");
+		Review review2 = new Review("4","booring");
 		
+		course.addReview(review1);
+		review1.setCourse(course);
+		
+		course.addReview(review2);
+		review2.setCourse(course);
+		
+		em.persist(review1);
+		em.persist(review2);
 	}
 }

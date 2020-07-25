@@ -46,7 +46,8 @@ public class SpringJdbcApplication implements CommandLineRunner{
 //		courseRepository.aroundEntityManager();
 //		studentRepository.saveStudentWithPassport();
 //		studentRepository.someTestforPersistentContext();
-		studentRepository.retrivePassportAndAssosiateStudent();
+//		studentRepository.retrivePassportAndAssosiateStudent();
+		courseRepository.addReviewsToCourse();
 	}
 	
 
