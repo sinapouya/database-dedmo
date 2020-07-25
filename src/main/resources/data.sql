@@ -36,11 +36,11 @@ insert into STUDENT(ID,NAME,PASSPORT_ID) values(2004,'ANGEL',4004);
 
 
 
-INSERT INTO REVIEW(ID,RATING,DESCRIPTION) 
-	values(50001,'5','Greate Course');
-INSERT INTO REVIEW(ID,RATING,DESCRIPTION) 
-	values(50002,'4','Wonderfull Course');
-INSERT INTO REVIEW(ID,RATING,DESCRIPTION) 
-	values(50003,'4','Awesome Course');
-INSERT INTO REVIEW(ID,RATING,DESCRIPTION) 
-	values(50004,'5','Greate Course');	
+INSERT INTO REVIEW(ID,RATING,DESCRIPTION,course_id) 
+	values(50001,'5','Greate Course',10001);
+INSERT INTO REVIEW(ID,RATING,DESCRIPTION,course_id) 
+	values(50002,'4','Wonderfull Course',10001);
+INSERT INTO REVIEW(ID,RATING,DESCRIPTION,course_id) 
+	values(50003,'4','Awesome Course',10003);
+INSERT INTO REVIEW(ID,RATING,DESCRIPTION,course_id) 
+	values(50004,'5','Greate Course',10003);	

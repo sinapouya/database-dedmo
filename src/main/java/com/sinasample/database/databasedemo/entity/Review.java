@@ -1,9 +1,13 @@
 package com.sinasample.database.databasedemo.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Review {
@@ -12,6 +16,9 @@ public class Review {
 	private long id;
 	private String rating;
 	private String description;
+	
+	@ManyToOne
+	private Course course;
 	public Review() {
 		super();
 	}
@@ -32,6 +39,13 @@ public class Review {
 	}
 	public void setRating(String rating) {
 		this.rating = rating;
+	}
+	
+	public Course getCourse() {
+		return course;
+	}
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 	@Override
 	public String toString() {
