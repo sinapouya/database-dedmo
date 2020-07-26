@@ -27,12 +27,11 @@ public class Student {
 	private Passport passport;
 	
 	@ManyToMany
-	@JoinTable(
-			name="Student_Course",
-			joinColumns=@JoinColumn(name="STUDENT_ID"),
-			inverseJoinColumns = @JoinColumn(name = "COURSE_ID")
-	)
-	private List<Course> courses=new ArrayList<Course>();
+	@JoinTable(name = "STUDENT_COURSE", 
+	joinColumns = @JoinColumn(name = "STUDENT_ID"), 
+	inverseJoinColumns = @JoinColumn(name = "COURSE_ID"))
+	private List<Course> courses = new ArrayList<>();
+	
 	
 	
 	public List<Course> getCourses() {

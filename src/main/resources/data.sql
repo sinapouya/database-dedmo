@@ -1,22 +1,22 @@
-/*create table person(
-	id integer not null,
-	name varchar(255) not null,
-	location varchar(255),
-	birth_date timestamp,
-	primary key(id)
-);
-*/
+--create table person(
+--	id integer not null,
+--	name varchar(255) not null,
+--	location varchar(255),
+--	birth_date timestamp,
+--	primary key(id)
+--);
+
 
 insert into PERSON(ID,NAME,LOCATION,BIRTH_DATE) values(10001,'SINA','TEHRAN',sysdate());
 insert into PERSON(ID,NAME,LOCATION,BIRTH_DATE) values(10002,'MARYAM','TABRIZ',sysdate());
 insert into PERSON(ID,NAME,LOCATION,BIRTH_DATE) values(10003,'MEHRI','TEHRAN',sysdate());
 insert into PERSON(ID,NAME,LOCATION,BIRTH_DATE) values(10004,'ANGEL','TEHRAN',sysdate());
 
-/*create table COURSE{
-	id BIGINT not null,
-	name varchar(255) not null
-}
-*/
+--create table COURSE{
+--	id bigint not null,
+--	name varchar(255) not null
+--}
+--
 --alter table COURSE add column CREATED_DATE timestamp;
 --alter table COURSE add column LAST_UPDATED_DATE timestamp;
 
@@ -44,3 +44,10 @@ INSERT INTO REVIEW(ID,RATING,DESCRIPTION,course_id)
 	values(50003,'4','Awesome Course',10003);
 INSERT INTO REVIEW(ID,RATING,DESCRIPTION,course_id) 
 	values(50004,'5','Greate Course',10003);	
+	
+	
+insert into student_course(student_id,course_id) values (2001,10002);	
+insert into student_course(student_id,course_id) values (2001,10002);
+insert into student_course(student_id,course_id) values (2001,10002);
+insert into student_course(student_id,course_id) values (2004,10003);
+

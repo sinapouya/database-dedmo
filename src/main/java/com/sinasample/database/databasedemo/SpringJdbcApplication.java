@@ -22,7 +22,7 @@ import com.sinasample.database.databasedemo.jpa.PersonJpaRepository;
 import com.sinasample.database.databasedemo.jpa.StudentRepository;
 
 @SpringBootApplication
-public class SpringJdbcApplication implements CommandLineRunner{
+public class SpringJdbcApplication implements CommandLineRunner {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
@@ -33,6 +33,7 @@ public class SpringJdbcApplication implements CommandLineRunner{
 	private StudentRepository studentRepository;
 	@Autowired
 	private EntityManager em;
+
 	public static void main(String[] args) {
 		SpringApplication.run(SpringJdbcApplication.class, args);
 	}
@@ -58,9 +59,10 @@ public class SpringJdbcApplication implements CommandLineRunner{
 //		List<Review> reviews = new ArrayList<Review>(); 
 //		courseRepository.addReviewsToCourse(10003l, reviews);
 
-		studentRepository.insertStudentAndCourse(new Student("new stdnt"),
-				new Course("new course"));
+	    studentRepository.insertStudentAndCourse(2001l, 10001l);
+		 
+
+//		studentRepository.retriveStudentAndCourses(2001l);
 	}
-	
 
 }

@@ -67,13 +67,34 @@ public class StudentRepository {
 		
 	}
 	@Transactional
-	public void insertStudentAndCourse(Student student,Course course) {
+	public void insertStudentAndCourse(Long studentId,Long courseId) {
 
+		
+		Course course = em.find(Course.class, courseId);
+		Student student = em.find(Student.class, studentId);
 		student.addCourse(course);
 		course.addStudent(student);
 		
 		em.persist(student);
 		em.persist(course);
+		
+		
+		/*
+		 * Student student1=new Student("name test"); Course course1=new
+		 * Course("course name 1");
+		 * 
+		 * em.persist(student1); em.persist(course1);
+		 * 
+		 * student1.addCourse(course1); course1.addStudent(student1);
+		 * em.persist(course1); em.persist(student1);
+		 */
+		
+	} 
+	
+	public void retriveStudentAndCourses(Long studentId) {
+		Student student = em.find(Student.class, studentId);
+		logger.info("student is {} ",student);
+		logger.info("related courses {}",student.getCourses());
 	}
 	
 }
