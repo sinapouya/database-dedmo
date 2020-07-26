@@ -1,5 +1,6 @@
 package com.sinasample.database.databasedemo;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,10 +15,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.sinasample.database.databasedemo.entity.Course;
+import com.sinasample.database.databasedemo.entity.FullTimeEmploye;
+import com.sinasample.database.databasedemo.entity.PartTimeEmploye;
 import com.sinasample.database.databasedemo.entity.Person;
 import com.sinasample.database.databasedemo.entity.Review;
 import com.sinasample.database.databasedemo.entity.Student;
 import com.sinasample.database.databasedemo.jpa.CourseRepository;
+import com.sinasample.database.databasedemo.jpa.EmployeeRepository;
 import com.sinasample.database.databasedemo.jpa.PersonJpaRepository;
 import com.sinasample.database.databasedemo.jpa.StudentRepository;
 
@@ -33,7 +37,10 @@ public class SpringJdbcApplication implements CommandLineRunner {
 	private StudentRepository studentRepository;
 	@Autowired
 	private EntityManager em;
-
+	
+	@Autowired
+	private EmployeeRepository employeeRepository;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringJdbcApplication.class, args);
 	}
@@ -59,10 +66,23 @@ public class SpringJdbcApplication implements CommandLineRunner {
 //		List<Review> reviews = new ArrayList<Review>(); 
 //		courseRepository.addReviewsToCourse(10003l, reviews);
 
-	    studentRepository.insertStudentAndCourse(2001l, 10001l);
-		 
-
+//	    studentRepository.insertStudentAndCourse(2001l, 10001l);
 //		studentRepository.retriveStudentAndCourses(2001l);
+		
+		employeeRepository.save(new FullTimeEmploye("jack", new BigDecimal("10000")));
+		employeeRepository.save(new PartTimeEmploye("jill", new BigDecimal("50")));
+		
+		logger.info("all employee -> {}",employeeRepository.retriveAll());
+	
+
 	}
 
 }
+
+
+
+
+
+
+
+
