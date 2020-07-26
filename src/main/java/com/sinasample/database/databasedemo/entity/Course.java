@@ -41,13 +41,13 @@ public class Course {
 	private List<Review> reviews=new ArrayList();
 	
 	@ManyToMany(mappedBy = "courses")
-	private List<Student> students; 
+	private List<Student> students=new ArrayList<Student>(); 
 	
 	public List<Student> getStudents() {
 		return students;
 	}
-	public void setStudents(List<Student> students) {
-		this.students = students;
+	public void addStudent(Student student) {
+		this.students.add(student);
 	}
 	public Course() {
 	}

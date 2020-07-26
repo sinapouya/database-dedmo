@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.sinasample.database.databasedemo.entity.Course;
 import com.sinasample.database.databasedemo.entity.Passport;
 import com.sinasample.database.databasedemo.entity.Student;
 import org.slf4j.*;
@@ -64,6 +65,15 @@ public class StudentRepository {
 		logger.info("passport is -> {} ",passport);
 		logger.info("related student is -> {} ",passport.getStudent());
 		
+	}
+	@Transactional
+	public void insertStudentAndCourse(Student student,Course course) {
+
+		student.addCourse(course);
+		course.addStudent(student);
+		
+		em.persist(student);
+		em.persist(course);
 	}
 	
 }

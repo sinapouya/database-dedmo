@@ -1,5 +1,6 @@
 package com.sinasample.database.databasedemo.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -31,7 +32,7 @@ public class Student {
 			joinColumns=@JoinColumn(name="STUDENT_ID"),
 			inverseJoinColumns = @JoinColumn(name = "COURSE_ID")
 	)
-	private List<Course> courses;
+	private List<Course> courses=new ArrayList<Course>();
 	
 	
 	public List<Course> getCourses() {
