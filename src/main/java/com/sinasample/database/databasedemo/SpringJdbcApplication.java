@@ -1,6 +1,8 @@
 package com.sinasample.database.databasedemo;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 
@@ -13,6 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.sinasample.database.databasedemo.entity.Course;
 import com.sinasample.database.databasedemo.entity.Person;
+import com.sinasample.database.databasedemo.entity.Review;
 import com.sinasample.database.databasedemo.jpa.CourseRepository;
 import com.sinasample.database.databasedemo.jpa.PersonJpaRepository;
 import com.sinasample.database.databasedemo.jpa.StudentRepository;
@@ -47,7 +50,11 @@ public class SpringJdbcApplication implements CommandLineRunner{
 //		studentRepository.saveStudentWithPassport();
 //		studentRepository.someTestforPersistentContext();
 //		studentRepository.retrivePassportAndAssosiateStudent();
-		courseRepository.addReviewsToCourse();
+//		courseRepository.addReviewsToCourseHardCoded();
+		Review review1 = new Review("5","Awsoome");
+		Review review2 = new Review("4","booring");
+		List<Review> reviews = new ArrayList<Review>(); 
+		courseRepository.addReviewsToCourse(10003l, reviews);
 	}
 	
 

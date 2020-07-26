@@ -1,5 +1,7 @@
 package com.sinasample.database.databasedemo.jpa;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
@@ -44,7 +46,7 @@ public class CourseRepository {
 		 Course course1 = findById(10003l);
 		 course1.setName("Simple spring boot sample-updated");
 	}
-	public void addReviewsToCourse() {
+	public void addReviewsToCourseHardCoded() {
 		Course course = this.findById(10003l);
 		
 		Review review1 = new Review("5","Awsoome");
@@ -58,5 +60,18 @@ public class CourseRepository {
 		
 		em.persist(review1);
 		em.persist(review2);
+	}
+	public void addReviewsToCourse(Long courseId,List<Review> reviews) {
+		Course course = this.findById(courseId);
+		
+//		Review review1 = new Review("5","Awsoome");
+//		Review review2 = new Review("4","booring");
+		for(Review review:reviews) {
+			course.addReview(review);
+			review.setCourse(course);
+			em.persist(review);
+			
+		}
+		
 	}
 }
