@@ -30,6 +30,6 @@ public class EmployeeRepository {
 		}
 	}
 	public List<Employee> retriveAll(){
-		return em.createQuery("select e employee e",Employee.class).getResultList();
+		return em.createQuery("select e from Employee e",Employee.class).getResultList();
 	}
 }

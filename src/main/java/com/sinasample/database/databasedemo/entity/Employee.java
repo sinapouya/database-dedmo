@@ -21,7 +21,6 @@ import org.springframework.lang.Nullable;
 import jdk.jfr.Timestamp;
 
 @Entity
-@Table(name="Course")
 public abstract class Employee {
 	@Id
 	@GeneratedValue
