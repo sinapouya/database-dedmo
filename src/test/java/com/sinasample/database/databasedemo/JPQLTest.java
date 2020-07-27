@@ -18,6 +18,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import com.sinasample.database.databasedemo.entity.Course;
+import com.sinasample.database.databasedemo.entity.Student;
 import com.sinasample.database.databasedemo.jpa.CourseRepository;
 
 @RunWith(SpringRunner.class)
@@ -63,6 +64,29 @@ public class JPQLTest {
 		Query query=em.createQuery("select c from Course c order by size(c.students) desc",Course.class);
 		List<Course> resultList = query.getResultList();
 		logger.info(" select c from Course c order by size(c.students) {}",resultList);
+	}
+	@Test
+	public void jpql_students_that_passports_is_like() {
+		Query query=em.createQuery("select s from Student s where s.passport.number like '%1234%' ",Student.class);
+		List<Student> resultList = query.getResultList();
+		logger.info(" select s from student where s.passport.number like '%123%'  {}",resultList);
+	}
+	@Test
+	public void join() {
+		Query query=em.createQuery("select c,s from Course c JOIN c.students s ");
+		List<Object[]> resultList = query.getResultList();
+		for(Object[] result:resultList) {
+			logger.info(" join --> Courses is {} Students is ",result[0],result[1]);	
+		}
+		
+	}
+	@Test
+	public void left_join() {
+		Query query=em.createQuery("select c,s from Course c left JOIN c.students s ");
+		List<Object[]> resultList = query.getResultList();
+		for(Object[] result:resultList) {
+			logger.info(" Courses is {} Students is ",result[0],result[1]);	
+		}
 	}
 
 }
