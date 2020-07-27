@@ -42,9 +42,15 @@ public class JPQLTest {
 	}
 	@Test
 	public void jpql_where() {
-		Query query=em.createNamedQuery("get_all_git_courses");
+		Query query=em.createNamedQuery("get_all_jpa_courses");
 		List<Course> resultList = query.getResultList();
 		logger.info("select c from Course c where name like '%jpa' {}",resultList);
+	}
+	@Test
+	public void jpql_where_course_without_student() {
+		Query query=em.createQuery("select c from Course c where c.students is empty ",Course.class);
+		List<Course> resultList = query.getResultList();
+		logger.info(" select Course c where c.student is empty {}",resultList);
 	}
 
 }

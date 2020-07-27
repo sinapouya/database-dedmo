@@ -69,11 +69,12 @@ public class SpringJdbcApplication implements CommandLineRunner {
 //	    studentRepository.insertStudentAndCourse(2001l, 10001l);
 //		studentRepository.retriveStudentAndCourses(2001l);
 		
-		employeeRepository.save(new FullTimeEmploye("jack", new BigDecimal("10000")));
-		employeeRepository.save(new PartTimeEmploye("jill", new BigDecimal("50")));
-		
-		logger.info("all employee -> {}",employeeRepository.retriveAll());
+//		employeeRepository.save(new FullTimeEmploye("jack", new BigDecimal("10000")));
+//		employeeRepository.save(new PartTimeEmploye("jill", new BigDecimal("50")));
+//		
+//		logger.info("all employee -> {}",employeeRepository.retriveAll());
 	
+		
 
 	}
 
