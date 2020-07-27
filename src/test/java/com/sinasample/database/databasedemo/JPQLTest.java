@@ -52,6 +52,19 @@ public class JPQLTest {
 		List<Course> resultList = query.getResultList();
 		logger.info(" select Course c where c.student is empty {}",resultList);
 	}
+	@Test
+	public void jpql_courses_atleast_2students() {
+		Query query=em.createQuery("select c from Course c where size(c.students)>2 ",Course.class);
+		List<Course> resultList = query.getResultList();
+		logger.info(" select c from Course c where size(c.students)>2 {}",resultList);
+	}
+	@Test
+	public void jpql_courses_order_by_number_of_students() {
+		Query query=em.createQuery("select c from Course c order by size(c.students) desc",Course.class);
+		List<Course> resultList = query.getResultList();
+		logger.info(" select c from Course c order by size(c.students) {}",resultList);
+	}
 
 }
 
+ 
