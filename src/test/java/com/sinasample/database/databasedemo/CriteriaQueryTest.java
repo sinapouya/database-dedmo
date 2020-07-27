@@ -8,8 +8,10 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.junit.jupiter.api.Test;
@@ -38,13 +40,54 @@ public class CriteriaQueryTest {
 		CriteriaQuery<Course> cq = cb.createQuery(Course.class);
 		
 		Root<Course> courseRoot = cq.from(Course.class);
-		
-		
+				
 		Query query = 
 				em.createQuery(cq.select(courseRoot));
 		
 		List resultList = query.getResultList();
 		logger.info("select with criteria {}",resultList);
+	}
+	@Test
+	public void criteria_where() {
+//		select c from Course c where c.name like %jpa%
+//		1)use criteriaBuilder to create criteriaQuery base on object
+		CriteriaBuilder cb =em.getCriteriaBuilder();
+		
+		CriteriaQuery<Course> criteriaQuery = cb.createQuery(Course.class);
+		
+//		2)define root for table which are involved
+		Root<Course> courseRoot = criteriaQuery.from(Course.class);
+		
+//		3)define predicates etc using citeria builder
+		Predicate likePredicate =cb.like(courseRoot.get("name"), "%jpa%");
+		criteriaQuery.where(likePredicate);
+		
+		
+		TypedQuery<Course> query =  em.createQuery(criteriaQuery.select(courseRoot));
+		List<Course> resultList = query.getResultList();			
+		
+		logger.info("typed query {} ",resultList);
+	}
+	
+	@Test
+	public void criteria_courses_without_student() {
+//		select c from Course c where c.students is empty 
+		CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+		
+		CriteriaQuery<Course> criteriaQuery = criteriaBuilder.createQuery(Course.class);
+		
+		
+		Root<Course> courseRoot = criteriaQuery.from(Course.class);
+		
+		Predicate isEmptyPredicate = criteriaBuilder.isEmpty(courseRoot.get("students"));
+		
+		criteriaQuery.where(isEmptyPredicate);
+		
+		TypedQuery<Course> query = em.createQuery(criteriaQuery.select(courseRoot));
+	
+		List<Course> resultList = query.getResultList();
+		
+		logger.info("typed query {} ",resultList);
 	}
 	
 }
