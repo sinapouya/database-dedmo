@@ -24,6 +24,15 @@ insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10001,'Simple 
 insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10002,'Simple spring sample',sysdate(),sysdate());
 insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10003,'Simple spring boot sample',sysdate(),sysdate());
 
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10004,'Dummy 1',sysdate(),sysdate());
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10005,'Dummy 2',sysdate(),sysdate());
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10006,'Dummy 3',sysdate(),sysdate());
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10007,'Dummy 4',sysdate(),sysdate());
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10008,'Dummy 5',sysdate(),sysdate());
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10009,'Dummy 6',sysdate(),sysdate());
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(100010,'Dummy 7',sysdate(),sysdate());
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(100011,'Dummy 8',sysdate(),sysdate());
+
 insert into PASSPORT(ID,number) values(4001,'S123456');
 insert into PASSPORT(ID,number) values(4002,'M456759');
 insert into PASSPORT(ID,number) values(4003,'M129873');

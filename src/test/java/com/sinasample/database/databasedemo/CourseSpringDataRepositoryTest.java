@@ -18,6 +18,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.SortDefinition;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -65,6 +68,17 @@ public class CourseSpringDataRepositoryTest {
 	public void sort() {
 		Sort sort = Sort.by(Sort.Direction.DESC,"name");
 		logger.info("courses with sort -> {} ",courseRepo.findAll(sort));
+		
+	}
+	@Test
+	public void paggination() {
+		PageRequest pageRequest = PageRequest.of(0, 3);
+		Page<Course> firstPage = courseRepo.findAll(pageRequest);
+		logger.info("first page {}",firstPage.getContent());
+		
+		Pageable secondPageable = firstPage.nextPageable();
+		Page<Course> secondPage = courseRepo.findAll(secondPageable);
+		logger.info("second page {}",secondPage.getContent());
 		
 	}
 }
