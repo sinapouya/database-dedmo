@@ -21,6 +21,7 @@ import com.sinasample.database.databasedemo.entity.Person;
 import com.sinasample.database.databasedemo.entity.Review;
 import com.sinasample.database.databasedemo.entity.Student;
 import com.sinasample.database.databasedemo.jpa.CourseRepository;
+import com.sinasample.database.databasedemo.jpa.CourseSpringDataRepository;
 import com.sinasample.database.databasedemo.jpa.EmployeeRepository;
 import com.sinasample.database.databasedemo.jpa.PersonJpaRepository;
 import com.sinasample.database.databasedemo.jpa.StudentRepository;
@@ -40,6 +41,9 @@ public class SpringJdbcApplication implements CommandLineRunner {
 	
 	@Autowired
 	private EmployeeRepository employeeRepository;
+	
+	@Autowired
+	private CourseSpringDataRepository courseSpringDataRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringJdbcApplication.class, args);
@@ -73,9 +77,8 @@ public class SpringJdbcApplication implements CommandLineRunner {
 //		employeeRepository.save(new PartTimeEmploye("jill", new BigDecimal("50")));
 //		
 //		logger.info("all employee -> {}",employeeRepository.retriveAll());
-	
 		
-
+		
 	}
 
 }

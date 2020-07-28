@@ -11,6 +11,7 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
@@ -88,6 +89,26 @@ public class CriteriaQueryTest {
 		List<Course> resultList = query.getResultList();
 		
 		logger.info("typed query {} ",resultList);
+	}
+	
+	@Test
+	public void join() {
+//		select c from Course c join c.students s
+		CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+		
+		CriteriaQuery criteriaQuery = criteriaBuilder.createQuery(Course.class);
+		
+		
+		Root<Course> courseRoot = criteriaQuery.from(Course.class);
+		
+		Join<Object,Object> join = courseRoot.join("students");
+		
+		TypedQuery<Course> query = em.createQuery(criteriaQuery.select(courseRoot));
+		
+		List<Course> resultList = query.getResultList();
+		
+		logger.info("join query {} ",resultList);
+		
 	}
 	
 }
