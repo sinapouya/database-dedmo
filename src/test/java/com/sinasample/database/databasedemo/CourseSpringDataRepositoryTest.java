@@ -6,6 +6,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
@@ -14,7 +16,9 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.support.SortDefinition;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -57,5 +61,10 @@ public class CourseSpringDataRepositoryTest {
 		logger.info(" count all courses {} ",courseRepo.count());
 		
 	}
+	@Test 
+	public void sort() {
+		Sort sort = Sort.by(Sort.Direction.DESC,"name");
+		logger.info("courses with sort -> {} ",courseRepo.findAll(sort));
 		
+	}
 }
