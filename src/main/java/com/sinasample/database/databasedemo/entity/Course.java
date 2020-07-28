@@ -25,7 +25,8 @@ import jdk.jfr.Timestamp;
 @NamedQueries(
 		value = {
 				@NamedQuery(name = "get_all_courses",query = "select c from Course c"),
-				@NamedQuery(name = "get_all_jpa_courses",query = "select c from Course c where name like '%jpa'")
+				@NamedQuery(name = "get_all_jpa_courses",
+				query = "select c from Course c where name like '%jpa'")
 
 				
 		})

@@ -81,4 +81,8 @@ public class CourseSpringDataRepositoryTest {
 		logger.info("second page {}",secondPage.getContent());
 		
 	}
+	@Test
+	public void findByName() {
+		logger.info("find by name {}",courseRepo.findByName("Simple jpa sample"));
+	}
 }
