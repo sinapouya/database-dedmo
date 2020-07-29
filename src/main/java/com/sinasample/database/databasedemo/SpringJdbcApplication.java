@@ -78,7 +78,7 @@ public class SpringJdbcApplication implements CommandLineRunner {
 //		
 //		logger.info("all employee -> {}",employeeRepository.retriveAll());
 		
-		
+		courseRepository.deleteById(10002l);
 	}
 
 }

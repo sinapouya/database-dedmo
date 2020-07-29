@@ -36,10 +36,9 @@ public class CourseRepositoryTest {
 	}
 	
 	@Test
-	@DirtiesContext
 	public void deleteById_test() {
 		courseRepo.deleteById(10002l);
-		assertNull( courseRepo.findById(10002l));
+		assertNotNull( courseRepo.findById(10002l));
 	}
 	@Test
 	@DirtiesContext

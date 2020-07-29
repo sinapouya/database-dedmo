@@ -16,7 +16,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.Where;
 import org.springframework.lang.Nullable;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -34,6 +36,8 @@ import jdk.jfr.Timestamp;
 				
 		})
 @Cacheable
+@SQLDelete(sql = "update course set is_deleted=true where id=?")
+@Where(clause = "id_deleted=false")
 public class Course {
 	@Id
 	@GeneratedValue

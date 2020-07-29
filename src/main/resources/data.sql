@@ -20,21 +20,29 @@ insert into PERSON(ID,NAME,LOCATION,BIRTH_DATE) values(10004,'ANGEL','TEHRAN',sy
 --alter table COURSE add column CREATED_DATE timestamp;
 --alter table COURSE add column LAST_UPDATED_DATE timestamp;
 
-insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE,isDeleted) 
-values(10001,'Simple jpa sample',sysdate(),sysdate().false);
-insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE,isDeleted) 
-values(10002,'Simple spring sample',sysdate(),sysdate()false);
-insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE,isDeleted) 
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE,is_deleted) 
+values(10001,'Simple jpa sample',sysdate(),sysdate(),false);
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE,is_deleted) 
+values(10002,'Simple spring sample',sysdate(),sysdate(),false);
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE,is_deleted) 
 values(10003,'Simple spring boot sample',sysdate(),sysdate(),false);
 
-insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10004,'Dummy 1',sysdate(),sysdate());
-insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10005,'Dummy 2',sysdate(),sysdate());
-insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10006,'Dummy 3',sysdate(),sysdate());
-insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10007,'Dummy 4',sysdate(),sysdate());
-insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10008,'Dummy 5',sysdate(),sysdate());
-insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10009,'Dummy 6',sysdate(),sysdate());
-insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(100010,'Dummy 7',sysdate(),sysdate());
-insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(100011,'Dummy 8',sysdate(),sysdate());
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE,is_deleted)
+values(10004,'Dummy 1',sysdate(),sysdate(),false);
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE,is_deleted)
+values(10005,'Dummy 2',sysdate(),sysdate(),false);
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE,is_deleted)
+values(10006,'Dummy 3',sysdate(),sysdate(),false);
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE,is_deleted)
+values(10007,'Dummy 4',sysdate(),sysdate(),false);
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE,is_deleted) 
+values(10008,'Dummy 5',sysdate(),sysdate(),false);
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE,is_deleted) 
+values(10009,'Dummy 6',sysdate(),sysdate(),false);
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE,is_deleted) 
+values(100010,'Dummy 7',sysdate(),sysdate(),false);
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE,is_deleted) 
+values(100011,'Dummy 8',sysdate(),sysdate(),false);
 
 insert into PASSPORT(ID,number) values(4001,'S123456');
 insert into PASSPORT(ID,number) values(4002,'M456759');
