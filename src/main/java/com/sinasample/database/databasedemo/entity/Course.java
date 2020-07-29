@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -46,8 +48,9 @@ public class Course {
 	@Column(nullable = false)
 	private String name;
 
+	
 	@OneToMany(mappedBy = "course")
-	private List<Review> reviews=new ArrayList();
+	private List<Review> reviews = new ArrayList();
 	
 	@ManyToMany(mappedBy = "courses")
 	@JsonIgnore

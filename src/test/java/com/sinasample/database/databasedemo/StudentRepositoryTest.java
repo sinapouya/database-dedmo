@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.sinasample.database.databasedemo.entity.Address;
 import com.sinasample.database.databasedemo.entity.Passport;
 import com.sinasample.database.databasedemo.entity.Student;
 import com.sinasample.database.databasedemo.jpa.StudentRepository;
@@ -34,7 +35,7 @@ public class StudentRepositoryTest {
 		logger.info("passport is {} ",passport);
 		
 	}
-	@Test
+	
 	@Transactional
 	public void someTestforPersistentContext() {
 		Student student = em.find(Student.class, 2001l);
@@ -46,5 +47,14 @@ public class StudentRepositoryTest {
 		student.setName("SINA-updated");
 		em.persist(student);
 		em.persist(passport);
+	}
+	@Test
+	@Transactional
+	public void setAddressDetails() {
+		Student student = em.find(Student.class, 2001l);
+		student.setAddress(new Address("no 1","some street","city name"));
+		em.persist(student);
+		logger.info("student is {} ",student);
+		
 	}
 }
