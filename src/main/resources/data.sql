@@ -20,9 +20,12 @@ insert into PERSON(ID,NAME,LOCATION,BIRTH_DATE) values(10004,'ANGEL','TEHRAN',sy
 --alter table COURSE add column CREATED_DATE timestamp;
 --alter table COURSE add column LAST_UPDATED_DATE timestamp;
 
-insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10001,'Simple jpa sample',sysdate(),sysdate());
-insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10002,'Simple spring sample',sysdate(),sysdate());
-insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10003,'Simple spring boot sample',sysdate(),sysdate());
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE,isDeleted) 
+values(10001,'Simple jpa sample',sysdate(),sysdate().false);
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE,isDeleted) 
+values(10002,'Simple spring sample',sysdate(),sysdate()false);
+insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE,isDeleted) 
+values(10003,'Simple spring boot sample',sysdate(),sysdate(),false);
 
 insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10004,'Dummy 1',sysdate(),sysdate());
 insert into COURSE(ID,NAME,CREATED_DATE,LAST_UPDATED_DATE) values(10005,'Dummy 2',sysdate(),sysdate());

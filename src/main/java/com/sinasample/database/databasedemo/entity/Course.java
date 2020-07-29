@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +19,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.lang.Nullable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jdk.jfr.Timestamp;
 
 @Entity
@@ -30,6 +33,7 @@ import jdk.jfr.Timestamp;
 
 				
 		})
+@Cacheable
 public class Course {
 	@Id
 	@GeneratedValue
@@ -42,7 +46,10 @@ public class Course {
 	private List<Review> reviews=new ArrayList();
 	
 	@ManyToMany(mappedBy = "courses")
+	@JsonIgnore
 	private List<Student> students=new ArrayList<Student>(); 
+	
+	private boolean isDeleted;
 	
 	public List<Student> getStudents() {
 		return students;
