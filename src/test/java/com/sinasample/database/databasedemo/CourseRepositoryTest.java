@@ -35,11 +35,11 @@ public class CourseRepositoryTest {
 		assertEquals("Simple jpa sample",course.getName());
 	}
 	
-	@Test
-	public void deleteById_test() {
-		courseRepo.deleteById(10002l);
-		assertNotNull( courseRepo.findById(10002l));
-	}
+//	@Test
+//	public void deleteById_test() {
+//		courseRepo.deleteById(10002l);
+//		assertNotNull( courseRepo.findById(10002l));
+//	}
 	@Test
 	@DirtiesContext
 	public void save_test() {

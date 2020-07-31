@@ -38,8 +38,8 @@ import jdk.jfr.Timestamp;
 				
 		})
 @Cacheable
-@SQLDelete(sql = "update course set is_deleted=true where id=?")
-@Where(clause = "id_deleted=false")
+//@SQLDelete(sql = "update course set is_deleted=true where id=?")
+//@Where(clause = "id_deleted=false")
 public class Course {
 	@Id
 	@GeneratedValue
